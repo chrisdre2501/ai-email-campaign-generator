@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Email Campaign Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Email Campaign Generator</h1>
+    <p class="subtitle">Powered by Claude API + Live Web Research</p>
+
+    <div class="form-group">
+      <label>Product or Service</label>
+      <input type="text" id="product" placeholder="e.g. Sideshow Rebel Terminator figure — used, excellent condition">
+    </div>
+
+    <div class="form-group">
+      <label>Target Audience</label>
+      <input type="text" id="audience" placeholder="e.g. Sideshow collectors and Terminator fans">
+    </div>
+
+    <div class="form-group">
+      <label>Campaign Goal</label>
+      <select id="goal">
+        <option>Drive free trial signups</option>
+        <option>Promote a limited-time offer</option>
+        <option>Re-engage inactive customers</option>
+        <option>Announce a new feature</option>
+        <option>Nurture leads toward purchase</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Brand Tone</label>
+      <select id="tone">
+        <option>Professional and trustworthy</option>
+        <option>Friendly and conversational</option>
+        <option>Bold and urgent</option>
+        <option>Witty and playful</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Your Claude API Key</label>
+      <input type="password" id="apikey" placeholder="sk-ant-...">
+      <small>Stays in your browser only — never sent anywhere except Anthropic.</small>
+    </div>
+
+    <button id="generate" onclick="generateCampaign()">Generate Campaign</button>
+
+    <div id="loading" class="hidden">⟳ Researching product online...</div>
+
+    <div id="output" class="hidden">
+      <h2>Your Email Campaign</h2>
+
+      <div class="field-label">🔍 Research Found</div>
+      <div id="research" class="output-field research-field"></div>
+
+      <div class="field-label">Subject Line</div>
+      <div id="subject" class="output-field"></div>
+
+      <div class="field-label">Preview Text</div>
+      <div id="preview" class="output-field"></div>
+
+      <div class="field-label">Email Body</div>
+      <div id="body" class="output-field"></div>
+
+      <div class="field-label">Call to Action</div>
+      <div id="cta" class="output-field"></div>
+
+      <button onclick="copyAll()">Copy All to Clipboard</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
